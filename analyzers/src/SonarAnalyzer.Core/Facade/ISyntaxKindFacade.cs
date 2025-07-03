@@ -29,6 +29,7 @@ public interface ISyntaxKindFacade<out TSyntaxKind> where TSyntaxKind : struct
     abstract TSyntaxKind[] DefaultExpressions { get; }
     abstract TSyntaxKind EndOfLineTrivia { get; }
     abstract TSyntaxKind EnumDeclaration { get; }
+    abstract TSyntaxKind EnumMemberDeclaration { get; }
     abstract TSyntaxKind FieldDeclaration { get; }
     abstract TSyntaxKind IdentifierName { get; }
     abstract TSyntaxKind IdentifierToken { get; }

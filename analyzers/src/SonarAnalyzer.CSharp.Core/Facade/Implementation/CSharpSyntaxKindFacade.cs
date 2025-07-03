@@ -27,19 +27,21 @@ internal sealed class CSharpSyntaxKindFacade : ISyntaxKindFacade<SyntaxKind>
         SyntaxKind.ClassDeclaration,
         SyntaxKindEx.RecordDeclaration,
     };
-    public SyntaxKind[] ClassAndModuleDeclarations => new[] { SyntaxKind.ClassDeclaration };
-    public SyntaxKind[] ComparisonKinds => new[]
-    {
+    public SyntaxKind[] ClassAndModuleDeclarations => [SyntaxKind.ClassDeclaration];
+
+    public SyntaxKind[] ComparisonKinds =>
+    [
         SyntaxKind.GreaterThanExpression,
         SyntaxKind.GreaterThanOrEqualExpression,
         SyntaxKind.LessThanExpression,
         SyntaxKind.LessThanOrEqualExpression,
         SyntaxKind.EqualsExpression,
         SyntaxKind.NotEqualsExpression,
-    };
+    ];
     public SyntaxKind ConstructorDeclaration => SyntaxKind.ConstructorDeclaration;
-    public SyntaxKind[] DefaultExpressions => new[] { SyntaxKind.DefaultExpression, SyntaxKindEx.DefaultLiteralExpression };
+    public SyntaxKind[] DefaultExpressions => [SyntaxKind.DefaultExpression, SyntaxKindEx.DefaultLiteralExpression];
     public SyntaxKind EnumDeclaration => SyntaxKind.EnumDeclaration;
+    public SyntaxKind EnumMemberDeclaration => SyntaxKind.EnumMemberDeclaration;
     public SyntaxKind EndOfLineTrivia => SyntaxKind.EndOfLineTrivia;
     public SyntaxKind FieldDeclaration => SyntaxKind.FieldDeclaration;
     public SyntaxKind IdentifierName => SyntaxKind.IdentifierName;

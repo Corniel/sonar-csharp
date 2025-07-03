@@ -23,24 +23,27 @@ internal sealed class VisualBasicSyntaxKindFacade : ISyntaxKindFacade<SyntaxKind
     public SyntaxKind[] CastExpressions => new[] { SyntaxKind.CTypeExpression, SyntaxKind.DirectCastExpression };
     public SyntaxKind ClassDeclaration => SyntaxKind.ClassBlock;
     public SyntaxKind[] ClassAndRecordDeclarations => new[] { SyntaxKind.ClassBlock };
-    public SyntaxKind[] ClassAndModuleDeclarations => new[]
-    {
+
+    public SyntaxKind[] ClassAndModuleDeclarations =>
+    [
         SyntaxKind.ClassBlock,
         SyntaxKind.ModuleBlock
-    };
-    public SyntaxKind[] ComparisonKinds => new[]
-    {
+    ];
+
+    public SyntaxKind[] ComparisonKinds =>
+    [
         SyntaxKind.GreaterThanExpression,
         SyntaxKind.GreaterThanOrEqualExpression,
         SyntaxKind.LessThanExpression,
         SyntaxKind.LessThanOrEqualExpression,
         SyntaxKind.EqualsExpression,
         SyntaxKind.NotEqualsExpression,
-    };
+    ];
     public SyntaxKind ConstructorDeclaration => SyntaxKind.ConstructorBlock;
-    public SyntaxKind[] DefaultExpressions => new[] { SyntaxKind.NothingLiteralExpression };
+    public SyntaxKind[] DefaultExpressions => [SyntaxKind.NothingLiteralExpression];
     public SyntaxKind EndOfLineTrivia => SyntaxKind.EndOfLineTrivia;
     public SyntaxKind EnumDeclaration => SyntaxKind.EnumStatement;
+    public SyntaxKind EnumMemberDeclaration => SyntaxKind.EnumMemberDeclaration;
     public SyntaxKind FieldDeclaration => SyntaxKind.FieldDeclaration;
     public SyntaxKind IdentifierName => SyntaxKind.IdentifierName;
     public SyntaxKind IdentifierToken => SyntaxKind.IdentifierToken;
