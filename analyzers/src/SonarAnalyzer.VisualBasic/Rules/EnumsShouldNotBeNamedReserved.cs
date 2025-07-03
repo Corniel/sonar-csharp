@@ -14,19 +14,10 @@
  * along with this program; if not, see https://sonarsource.com/license/ssal/
  */
 
-using CS = SonarAnalyzer.CSharp.Rules;
-using VB = SonarAnalyzer.VisualBasic.Rules;
+namespace SonarAnalyzer.VisualBasic.Rules;
 
-namespace SonarAnalyzer.Test.Rules;
-
-[TestClass]
-public class EnumsShouldNotBeNamedReservedTest
+[DiagnosticAnalyzer(LanguageNames.VisualBasic)]
+public sealed class EnumsShouldNotBeNamedReserved : EnumsShouldNotBeNamedReservedBase<SyntaxKind>
 {
-    [TestMethod]
-    public void EnumsShouldNotBeNamedReserved_CS() =>
-        new VerifierBuilder<CS.EnumsShouldNotBeNamedReserved>().AddPaths("EnumsShouldNotBeNamedReserved.cs").Verify();
-
-    [TestMethod]
-    public void EnumsShouldNotBeNamedReserved_VB() =>
-        new VerifierBuilder<VB.EnumsShouldNotBeNamedReserved>().AddPaths("EnumsShouldNotBeNamedReserved.vb").Verify();
+    protected override ILanguageFacade<SyntaxKind> Language => VisualBasicFacade.Instance;
 }

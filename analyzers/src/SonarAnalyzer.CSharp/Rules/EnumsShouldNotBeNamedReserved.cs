@@ -17,26 +17,7 @@
 namespace SonarAnalyzer.CSharp.Rules;
 
 [DiagnosticAnalyzer(LanguageNames.CSharp)]
-public sealed class EnumsShouldNotBeNamedReserved : SonarDiagnosticAnalyzer
+public sealed class EnumsShouldNotBeNamedReserved : EnumsShouldNotBeNamedReservedBase<SyntaxKind>
 {
-    internal const string DiagnosticId = "S4016";
-    private const string MessageFormat = "Remove or rename this enum member.";
-
-    private static readonly DiagnosticDescriptor Rule =
-        DescriptorFactory.Create(DiagnosticId, MessageFormat);
-
-    public override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics { get; } = ImmutableArray.Create(Rule);
-
-    protected override void Initialize(SonarAnalysisContext context)
-        => context.RegisterNodeAction(c =>
-            {
-                if (c.Node is EnumMemberDeclarationSyntax enumMemberDeclaration
-                    && enumMemberDeclaration.Identifier.ValueText
-                        .SplitCamelCaseToWords()
-                        .Any(w => w == "RESERVED"))
-                {
-                    c.ReportIssue(Rule, enumMemberDeclaration);
-                }
-            },
-            SyntaxKind.EnumMemberDeclaration);
+    protected override ILanguageFacade<SyntaxKind> Language => CSharpFacade.Instance;
 }
